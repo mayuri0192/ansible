@@ -12,6 +12,6 @@
     - include: tasks/users.yml
     - include: tasks/cron.yml
     - include: tasks/package.yml
-    - name: Create config file
-      action: template src=node/templates/whazzup.in dest=/tmp/whazzup
+    - name: Download XML file
+      action: files src=files/example.xml dest=/tmp/example
 
