@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+#- hosts: localhost
+- hosts: z003zmry-HP-Z8-G4-Workstation, mayuri-VirtualBox
   become: true
   pre_tasks:
     - name: update repositories
