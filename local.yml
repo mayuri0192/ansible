@@ -13,5 +13,5 @@
     - include: tasks/cron.yml
     - include: tasks/package.yml
     - name: Download XML file
-      copy: src=files/example.xml dest=~/ansible/example.xml mode=600
+      copy: src=files/example.xml dest=home/mayuri/ansible/example.xml mode=600
 
