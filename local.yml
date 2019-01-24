@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 hosts: localhost
 become: true
 tasks:
   name: Install htop
   apt: name=htop
+=======
+- hosts: localhost
+  become: true
+  tasks:
+  - name: Install packages
+    apt: name={{item}}
+    with_items:
+      - mc
+      - tmux
+>>>>>>> 899699dfc6bc502cf1551e01b49f1e338b995d5a
