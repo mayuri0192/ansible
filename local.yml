@@ -15,13 +15,13 @@
     - name: Download XML file
       copy: src=files/example.xml dest=/home/example.xml mode=600
     - name: insert ip address in example.xml file 
-      lineinfile:
+      replace:
         path: /home/example.xml
-        insertafter: '<ipaddress>Jani</ipaddress>'
-        line: "<ipaddress>{{ansible_default_ipv4.address}}</ipaddress>"
+        regex: '<ipaddress>[\s\S]*?<\/ipaddress>'
+        replace: "<ipaddress>{{ansible_default_ipv4.address}}</ipaddress>"
     - name: insert hostname in example.xml file 
-      lineinfile:
+      replace:
         path: /home/example.xml
-        insertafter: '<user>Tove</user>'
-        line: "<user>{{inventory_hostname}}</user>"
+        regex: '<user>[\s\S]*?<\/user>'
+        replace: "<user>{{inventory_hostname}}</user>"
 
