@@ -16,16 +16,16 @@
       copy: src=files/example.xml dest=/home/example.xml mode=600
     - name: insert ip address in example.xml file 
       lineinfile:
-      path: /home/example.xml
-      insertafter: '<ipaddress>Jani</ipaddress>'
-      line: "{{item}}"
-      with_items:
-      - "<ipaddress>{{ansible_default_ipv4.address}}</ipaddress>"
+        path: /home/example.xml
+        insertafter: '<ipaddress>Jani</ipaddress>'
+        line: "{{item}}"
+        with_items:
+        - "<ipaddress>{{ansible_default_ipv4.address}}</ipaddress>"
     - name: insert hostname in example.xml file 
       lineinfile:
-      path: /home/example.xml
-      insertafter: '<user>Tove</user>'
-      line: "{{item}}"
-      with_items:
-      - "<user>{{inventory_hostname}}</user>"
+        path: /home/example.xml
+        insertafter: '<user>Tove</user>'
+        line: "{{item}}"
+        with_items:
+        - "<user>{{inventory_hostname}}</user>"
 
