@@ -20,8 +20,8 @@
         xpath: /note/ipaddress
         value: "{{ansible_default_ipv4.address}}"
     - name: set hostname in example.xml file 
-      replace:
+      xml:
         path: /home/example.xml
-        regex: /note/user
+        xpath: /note/user
         value: "{{inventory_hostname}}"
 
