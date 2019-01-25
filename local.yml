@@ -12,8 +12,8 @@
     - include: tasks/users.yml
     - include: tasks/cron.yml
     - include: tasks/package.yml
-    - name: Download XML file
-      copy: src=files/example.xml dest=/home/example.xml mode=600
+    #- name: Download XML file
+    #  copy: src=files/example.xml dest=/home/example.xml mode=600
     - name: insert ip address in example.xml file 
       lineinfile:
       dest: /home/example.xml
