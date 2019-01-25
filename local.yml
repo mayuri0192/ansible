@@ -14,14 +14,14 @@
     - include: tasks/package.yml
     - name: Download XML file
       copy: src=files/example.xml dest=/home/example.xml mode=600
-    - name: insert ip address in example.xml file 
+    - name: set ip address in example.xml file 
+      xml:
+        path: /home/example.xml
+        xpath: /note/ipaddress
+        value: "{{ansible_default_ipv4.address}}"
+    - name: set hostname in example.xml file 
       replace:
         path: /home/example.xml
-        regex: '<ipaddress>[\s\S]*?<\/ipaddress>'
-        replace: "<ipaddress>{{ansible_default_ipv4.address}}</ipaddress>"
-    - name: insert hostname in example.xml file 
-      replace:
-        path: /home/example.xml
-        regex: '<user>[\s\S]*?<\/user>'
-        replace: "<user>{{inventory_hostname}}</user>"
+        regex: /note/user
+        value: "{{inventory_hostname}}"
 
