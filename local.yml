@@ -18,14 +18,10 @@
       lineinfile:
         path: /home/example.xml
         insertafter: '<ipaddress>Jani</ipaddress>'
-        line: "{{item}}"
-        with_items:
-        - "<ipaddress>{{ansible_default_ipv4.address}}</ipaddress>"
+        line: "<ipaddress>{{ansible_default_ipv4.address}}</ipaddress>"
     - name: insert hostname in example.xml file 
       lineinfile:
         path: /home/example.xml
         insertafter: '<user>Tove</user>'
-        line: "{{item}}"
-        with_items:
-        - "<user>{{inventory_hostname}}</user>"
+        line: "<user>{{inventory_hostname}}</user>"
 
