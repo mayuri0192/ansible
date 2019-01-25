@@ -17,15 +17,15 @@
     - name: insert ip address in example.xml file 
       lineinfile:
       dest: /home/example.xml
-      insertafter: ‘<ipaddress>Jani</ipaddress>'
-      line: “{{item}}”
+      insertafter: '<ipaddress>Jani</ipaddress>'
+      line: "{{item}}"
       with_items:
-      - “{{ansible_default_ipv4.address}}</ipaddress>"
+      - "<ipaddress>{{ansible_default_ipv4.address}}</ipaddress>"
     - name: insert hostname in example.xml file 
       lineinfile:
       dest: /home/example.xml
-      insertafter: ‘<user>Tove</user>'
-      line: “{{item}}”
+      insertafter: '<user>Tove</user>'
+      line: "{{item}}"
       with_items:
-      - “ <user>{{inventory_hostname}}</user>"
+      - "<user>{{inventory_hostname}}</user>"
 
